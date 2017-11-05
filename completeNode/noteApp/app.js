@@ -8,7 +8,12 @@ const body = argv.body;
 
 switch (command) {
   case "add":
-    notes.addNote(title, body);
+    const note = notes.addNote(title, body);
+    if (note) {
+      console.log(`Note added! title: ${note.title} body: ${note.body}`);
+    } else {
+      console.log("Note already exists");
+    }
     break;
   case "list":
     notes.getAll();
