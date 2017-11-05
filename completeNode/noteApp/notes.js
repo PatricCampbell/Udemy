@@ -27,7 +27,7 @@ const addNote = (title, body) => {
 };
 
 const getAll = () => {
-  console.log("Here are all the notes");
+  return fetchNotes();
 };
 
 const getNote = title => {

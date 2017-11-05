@@ -16,7 +16,12 @@ switch (command) {
     }
     break;
   case "list":
-    notes.getAll();
+    const allNotes = notes.getAll();
+    console.log(`Printing ${allNotes.length} notes`);
+
+    allNotes.forEach(note => {
+      console.log(`title: ${note.title} body: ${note.body}`);
+    });
     break;
   case "read":
     const foundNote = notes.getNote(title);
