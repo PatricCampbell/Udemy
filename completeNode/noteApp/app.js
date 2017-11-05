@@ -1,6 +1,32 @@
-const argv = require("yargs").argv;
+const yargs = require("yargs");
 
 const notes = require("./notes");
+
+const titleOptions = {
+  describe: "Title of note",
+  demand: true,
+  alias: "t"
+};
+
+const bodyOptions = {
+  describe: "Body of note",
+  demand: true,
+  alias: "b"
+};
+
+const argv = yargs
+  .command("add", "Add a new note", {
+    title: titleOptions,
+    body: bodyOptions
+  })
+  .command("list", "List all notes")
+  .command("read", "Reads one note", {
+    title: titleOptions
+  })
+  .command("remove", "Removes one note", {
+    title: titleOptions
+  })
+  .help().argv;
 
 const command = argv._[0];
 const title = argv.title;
@@ -17,7 +43,7 @@ switch (command) {
     break;
   case "list":
     const allNotes = notes.getAll();
-    console.log(`Printing ${allNotes.length} notes`);
+    console.log(`Printing ${allNotes.length} note(s)`);
 
     allNotes.forEach(note => {
       console.log(`title: ${note.title} body: ${note.body}`);
