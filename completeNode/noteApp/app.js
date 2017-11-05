@@ -19,7 +19,14 @@ switch (command) {
     notes.getAll();
     break;
   case "read":
-    notes.getNote(title);
+    const foundNote = notes.getNote(title);
+    if (foundNote) {
+      console.log(
+        `Note found! title: ${foundNote.title} body: ${foundNote.body}`
+      );
+    } else {
+      console.log("Note not found");
+    }
     break;
   case "remove":
     const noteRemoved = notes.removeNote(title);
