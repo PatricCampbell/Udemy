@@ -22,7 +22,10 @@ switch (command) {
     notes.getNote(title);
     break;
   case "remove":
-    notes.removeNote(title);
+    const noteRemoved = notes.removeNote(title);
+    const message = noteRemoved ? "Note removed" : "Note not found";
+
+    console.log(message);
     break;
   default:
     console.log("Command not recognized");
