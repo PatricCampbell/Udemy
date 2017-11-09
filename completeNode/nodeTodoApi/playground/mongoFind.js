@@ -9,10 +9,9 @@ MongoClient.connect("mongodb://localhost:27017/TodoApp", (err, db) => {
   db
     .collection("Todos")
     .find()
-    .toArray()
-    .then(todos => {
-      console.log("Todos:");
-      console.log(JSON.stringify(todos, undefined, 2));
+    .count()
+    .then(count => {
+      console.log(`Todos Count: ${count}`);
     })
     .catch(err => {
       console.log("Unable to fetch todos", err);
