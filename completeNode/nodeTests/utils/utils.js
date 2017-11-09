@@ -12,11 +12,11 @@ module.exports.setName = (user, fullName) => {
 module.exports.asyncAdd = (a, b, callback) => {
   setTimeout(() => {
     callback(a + b);
-  }, 1000);
+  }, 10);
 };
 
 module.exports.asyncSquare = (n, callback) => {
   setTimeout(() => {
     callback(n * n);
-  }, 1500);
+  }, 15);
 };

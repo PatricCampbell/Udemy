@@ -4,7 +4,7 @@ const expect = require("expect");
 const app = require("./server").app;
 
 describe("Server", () => {
-  describe("/", () => {
+  describe("GET /", () => {
     it("should return hello world response", done => {
       request(app)
         .get("/")
@@ -18,7 +18,7 @@ describe("Server", () => {
     });
   });
 
-  describe("/users", () => {
+  describe("GET /users", () => {
     // make a new test
     // assert that status code is 200
     // assert that inside array, my user object exists with toInclude
