@@ -22,3 +22,22 @@ it("should square a number", () => {
   //   throw new Error(`Expected 25, but got ${res}`);
   // }
 });
+
+// it("should expect some values", () => {
+//   expect(12).toNotBe(11);
+//   expect({ name: "patric" }).toEqual({ name: "patric" });
+//   expect([1, 2, 3, 5]).toExclude(4);
+// });
+
+it("should verify first and last names are set", () => {
+  const user = {
+    age: 30,
+    location: "BK Dawg"
+  };
+  utils.setName(user, "Patric Campbell");
+
+  expect(user)
+    .toInclude({ firstName: "Patric" })
+    .toInclude({ lastName: "Campbell" })
+    .toBeA("object");
+});
